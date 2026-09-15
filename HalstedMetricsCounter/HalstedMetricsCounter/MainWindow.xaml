@@ -1,0 +1,38 @@
+﻿<Window x:Class="HalstedMetricsCounter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HalstedMetricsCounter"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" FontSize="16" FontWeight="Bold"
+                   Text="Выбор файла для анализа" Margin="0,0,0,16"/>
+
+        <TextBlock Grid.Row="1" Text="Путь к файлу:" Margin="0,0,0,4"/>
+        <TextBox x:Name="FilePathBox" Grid.Row="2"
+                 IsReadOnly="True" Padding="6"
+                 Text="(файл не выбран)"/>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal"
+                    VerticalAlignment="Top" Margin="0,20,0,0">
+            <Button Content="Выбрать файл…" Click="Choose_Click"
+                    Width="160" Height="32" Margin="0,0,8,0"/>
+            <Button x:Name="AnalyzeButton"
+                    Content="Анализировать" Click="Analyze_Click"
+                    Width="160" Height="32" IsEnabled="False"/>
+        </StackPanel>
+
+        <TextBlock x:Name="StatusText" Grid.Row="4"
+                   Foreground="Gray" Margin="0,16,0,0"/>
+    </Grid>
+</Window>
